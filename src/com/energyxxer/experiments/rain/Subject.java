@@ -1,9 +1,12 @@
 package com.energyxxer.experiments.rain;
 
+import java.awt.Color;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
+import java.util.Collection;
+import java.util.Collections;
 
-public class Subject extends PhysicsObject {
+public class Subject extends PhysicsObject implements Renderable {
     private final double speed;
 
     private int hits = 0;
@@ -36,6 +39,10 @@ public class Subject extends PhysicsObject {
     @Override
     public void gotHitBy(PhysicsObject object) {
         if(object instanceof Droplet) hits++;
-        if(hits > 100) environment.end();
+    }
+
+    @Override
+    public Collection<ColoredRectangle> getVisibleParts() {
+        return Collections.singletonList(new ColoredRectangle(new Color(80, 180, 120), getBounds()));
     }
 }

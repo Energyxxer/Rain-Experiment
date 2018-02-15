@@ -13,6 +13,8 @@ public interface PhysicsEnvironment {
         return 1.0 / getSimulationSpeed();
     }
 
+    void addObject(PhysicsObject obj);
+
     Collection<PhysicsObject> getAllObjects();
 
     Collection<PhysicsObject> getObjectsIntersecting(Rectangle2D.Double bounds);

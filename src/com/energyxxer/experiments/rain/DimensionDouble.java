@@ -35,4 +35,16 @@ public class DimensionDouble extends Dimension2D {
         this.width = width;
         this.height = height;
     }
+
+    public java.awt.Dimension toAwt() {
+        return new java.awt.Dimension((int) width, (int) height);
+    }
+
+    @Override
+    public String toString() {
+        return "DimensionDouble{" +
+                "width=" + width +
+                ", height=" + height +
+                '}';
+    }
 }
